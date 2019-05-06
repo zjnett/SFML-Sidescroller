@@ -13,15 +13,19 @@ File: Player.h
 class Player : public Entity, public sf::RectangleShape {
 public:
     // Value Constructor 1
-    Player(string name, double health, double maxHealth, double stamina, double maxStamina, 
-        sf::Vector2f &size, sf::Texture &texture, sf::Vector2f &pos) : name(name), health(health), 
-        maxHealth(maxHealth), stamina(stamina), maxStamina(maxStamina), sf::RectangleShape(size) {
+    Player(std::string name, double health, double maxHealth, double stamina, double maxStamina, 
+        sf::Vector2f &size, const sf::Texture *texture, sf::Vector2f &pos) : sf::RectangleShape(size) {
+            setName(name);
+            setHealth(health);
+            setMaxHealth(maxHealth);
+            setStamina(stamina);
+            setMaxStamina(maxStamina);
             setTexture(texture);
-            setPosition(position);
+            setPosition(pos);
         }
     
     // Value Constructor 2
-    Player(sf::Vector2f &size, sf::Texture &texture, sf::Vector2f &pos) : sf::RectangleShape(size) {
+    Player(sf::Vector2f &size, const sf::Texture *texture, sf::Vector2f &pos) : sf::RectangleShape(size) {
         setTexture(texture);
         setPosition(pos);
     }
