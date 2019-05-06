@@ -32,6 +32,8 @@ public:
 
     // Destructor
     ~Player() {}
+
+    void handlePlayerMovement();
 };
 
 #endif /* PLAYER_H */

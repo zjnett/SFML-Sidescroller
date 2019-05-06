@@ -16,7 +16,7 @@ int main(void) {
     pcTx[0].loadFromFile("textures/player/player.png");
 
     // Create player object
-    Player pc(*(new sf::Vector2f(100.0, 100.0)), pcTx, *(new sf::Vector2f(window.getSize().x / 2, window.getSize().y / 2)));
+    Player pc(*(new sf::Vector2f(250.0, 185.0)), pcTx, *(new sf::Vector2f(window.getSize().x / 2, window.getSize().y / 2)));
 
     while(window.isOpen()) {
         sf::Event event;
@@ -27,6 +27,8 @@ int main(void) {
         window.clear();
         window.draw(pc);
         window.display();
+        
+        pc.handlePlayerMovement();
     }
     return EXIT_SUCCESS;
 }
