@@ -1,3 +1,9 @@
+/******************************
+Programmer: Zach Nett
+Date: 5/6/19
+File: Player.h
+*******************************/
+
 #ifndef PLAYER_H
 #define PLAYER_H
 
@@ -6,7 +12,9 @@
 
 class Player : public Entity {
 public:
-
+    Player() {
+        
+    }
 private:
 
 };

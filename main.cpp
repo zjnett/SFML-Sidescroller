@@ -5,6 +5,7 @@ File: main.cpp
 *******************************/
 
 #include "Game.h"
+#include "Player.h"
 
 int main(void) {
     sf::RenderWindow window(sf::VideoMode(1920, 1080), "Working Title");
@@ -15,7 +16,6 @@ int main(void) {
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-
         window.clear();
         window.display();
     }
