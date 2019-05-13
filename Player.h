@@ -42,13 +42,25 @@ public:
         speed = newSpeed;
     }
 
-    void handlePlayerMovement();
+    void setIdleAnim(sf::Texture frame, int index) {
+        idleAnim[index] = frame;
+    }
 
-    void handlePlayerAnimation(sf::Texture txArray[], int frameCount, double animationSpeed);
+    void setRunAnim(sf::Texture frame, int index) {
+        runAnim[index] = frame;
+    }
+
+    void handlePlayerMovement();
 
     void handlePlayerAnimation(sf::Texture txArray[], int frameCount);
 
 private:
+    sf::Texture idleAnim[4];
+    sf::Texture runAnim[6];
+    /*sf::Texture idleWepAnim[4];
+    sf::Texture dieAnim[7];
+    sf::Texture attackOneAnim[5];
+    sf::Texture attackTwoAnim[6];*/
     double speed;
 };
 

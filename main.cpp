@@ -11,26 +11,37 @@ int main(void) {
     // Create game window
     sf::RenderWindow window(sf::VideoMode(1920, 1080), "Working Title");
 
-    // TODO: Delegate graphics loading to its own function
-
-    // Load player idle textures
-    sf::Texture pcIdleTx[4];
-    pcIdleTx[0].loadFromFile("textures/player/idle-nowep/adventurer-idle-00.png");
-    pcIdleTx[1].loadFromFile("textures/player/idle-nowep/adventurer-idle-01.png");
-    pcIdleTx[2].loadFromFile("textures/player/idle-nowep/adventurer-idle-02.png");
-    pcIdleTx[3].loadFromFile("textures/player/idle-nowep/adventurer-idle-03.png");
-
-    // Load player run textures
-    sf::Texture pcRunTx[6];
-    pcRunTx[0].loadFromFile("textures/player/run/adventurer-run-00.png");
-    pcRunTx[1].loadFromFile("textures/player/run/adventurer-run-01.png");
-    pcRunTx[2].loadFromFile("textures/player/run/adventurer-run-02.png");
-    pcRunTx[3].loadFromFile("textures/player/run/adventurer-run-03.png");
-    pcRunTx[4].loadFromFile("textures/player/run/adventurer-run-04.png");
-    pcRunTx[5].loadFromFile("textures/player/run/adventurer-run-05.png");
+    // Create clocks
 
     // Create player object
-    Player pc(*(new sf::Vector2f(250.0, 185.0)), pcIdleTx, *(new sf::Vector2f(window.getSize().x / 2, window.getSize().y / 2)));
+    Player pc(*(new sf::Vector2f(250.0, 185.0)), idle[0], *(new sf::Vector2f(window.getSize().x / 2, window.getSize().y / 2)));
+
+    // Load player idle textures
+    sf::Texture idle[4];
+    idle[0].loadFromFile("textures/player/idle-nowep/adventurer-idle-00.png");
+    pc.setIdleAnim(idle[0], 0);
+    idle[1].loadFromFile("textures/player/idle-nowep/adventurer-idle-01.png");
+    pc.setIdleAnim(idle[1], 1);
+    idle[2].loadFromFile("textures/player/idle-nowep/adventurer-idle-02.png");
+    pc.setIdleAnim(idle[2], 2);
+    idle[3].loadFromFile("textures/player/idle-nowep/adventurer-idle-03.png");
+    pc.setIdleAnim(idle[3], 3);
+
+    // Load player run textures
+    sf::Texture run[6];
+    run[0].loadFromFile("textures/player/run/adventurer-run-00.png");
+    pc.setRunAnim(run[0], 0);
+    run[1].loadFromFile("textures/player/run/adventurer-run-01.png");
+    pc.setRunAnim(run[1], 1);
+    run[2].loadFromFile("textures/player/run/adventurer-run-02.png");
+    pc.setRunAnim(run[2], 2);
+    run[3].loadFromFile("textures/player/run/adventurer-run-03.png");
+    pc.setRunAnim(run[3], 3);
+    run[4].loadFromFile("textures/player/run/adventurer-run-04.png");
+    pc.setRunAnim(run[4], 4);
+    run[5].loadFromFile("textures/player/run/adventurer-run-05.png");
+    pc.setRunAnim(run[5], 5);
+
     // Set player speed
     pc.setSpeed(2.0);
 
@@ -45,7 +56,8 @@ int main(void) {
         window.display();
         
         pc.handlePlayerMovement();
-        pc.handlePlayerAnimation(pcIdleTx, 4);
+
+        
     }
     return EXIT_SUCCESS;
 }
